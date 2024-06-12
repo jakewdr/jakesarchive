@@ -15,8 +15,16 @@ imageFiles = [
 
 for images in imageFiles:
     image = Image.open(images)
-    crop = (500, 500)
-    left = round((image.size[0] - crop[0])/2)
-    top = round((image.size[1] - crop[1])/2)
-    image = image.crop((left, top, crop[0]+left, crop[1] + top))
-    image.save(f"./images/{pathLeaf(images)}", 'webp', optimize = True, quality = 90)
+    width, height = image.size
+    print(width, height)
+    if width != height:
+        image = image.crop(((width - min(image.size)) // 2,
+                            (height - min(image.size)) // 2,
+                            (width + min(image.size)) // 2,
+                            (height + min(image.size)) // 2))
+
+    image = image.resize((500,500))
+    if ".png" in images:
+        image.save(f"./images/{pathLeaf(images)}".replace(".png", ".webp"), 'webp', optimize = True, quality = 90)
+    else:
+        image.save(f"./images/{pathLeaf(images)}", 'webp', optimize = True, quality = 90)

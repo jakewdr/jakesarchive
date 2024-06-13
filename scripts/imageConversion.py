@@ -26,5 +26,8 @@ for images in imageFiles:
     image = image.resize((500,500))
     if ".png" in images:
         image.save(f"./images/{pathLeaf(images)}".replace(".png", ".webp"), 'webp', optimize = True, quality = 90)
+    elif ".jpg" in images:
+        image.save(f"./images/{pathLeaf(images)}".replace(".jpg", ".webp"), 'webp', optimize = True, quality = 90)
     else:
         image.save(f"./images/{pathLeaf(images)}", 'webp', optimize = True, quality = 90)
+        

@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'ibm_plex_monobold';
     src: url('../resources/ibmplexmono-bold-webfont.woff2') format('woff2');
-    font-display: optional;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'ibm_plex_monosemibold';
     src: url('../resources/ibmplexmono-semibold-webfont.woff2') format('woff2');
-    font-display: optional;
+    font-display: swap;
 }
 
 * {
